@@ -11,7 +11,13 @@
     <h2>Fakultas</h2>
     <ul>
         @foreach ($fakultas as $item)
-            <li>{{$item}}</li>
+            <li>{{$item["nama"]}} {{$item["singkatan"]}}</li>
+        @endforeach
+    </ul>
+    <h2>Prodi</h2>
+    <ul>
+        @foreach ($fakultas as $item)
+            <li>{{$item["nama"]}} {{$item["singkatan"]}} </li>
         @endforeach
     </ul>
 </body>

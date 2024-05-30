@@ -12,6 +12,7 @@
                   <p class="card-description">
                     List data Program studi
                   </p>
+                  <a href="{{ route('prodi.create')}}" class="btn btn-primary">tambah</a>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>

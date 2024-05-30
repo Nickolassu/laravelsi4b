@@ -7,11 +7,11 @@
     <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">tambah Fakultas</h4>
+                  <h4 class="card-title">tambah mahasiswa</h4>
                   <p class="card-description">
-                    Formulir tambah fakultas
+                    Formulir tambah mahasiswa
                   </p>
-                  <form method="POST"action="{{route('fakultas.store')}}" class="forms-sample">
+                  <form method="POST"action="{{route('mahasiswa.store')}}" class="forms-sample">
                     @csrf
                     <div class="form-group">
                       <label for="nama">Nama</label>

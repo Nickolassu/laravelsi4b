@@ -13,5 +13,7 @@ class Prodi extends Model
         //return $this->belongsTo(Nama_Model::class, 'foreign_key');
         //1 prodi 1 fakultas belongsto()
         //1 fakultas > 1 prodi hasMany()
+        
     }
+     protected $fillable = ['nama','singkatan','fakultas_id'];
 }

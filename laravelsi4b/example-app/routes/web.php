@@ -39,3 +39,5 @@ route::get('listdata',function(){
 route:: resource('fakultas', FakultasController::class);
 
 route::resource('prodi', ProdiController::class);
+
+route::resource('mahasiswa', ProdiController::class);

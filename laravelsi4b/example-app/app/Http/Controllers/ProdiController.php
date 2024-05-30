@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ProdiController extends Controller
 {
@@ -22,7 +24,8 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        $fakultas = Fakultas::all();
+        return view('prodi.create')->with('fakultas',$fakultas);
     }
 
     /**
@@ -30,7 +33,17 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        // validasi form
+        $val = $request->validate([
+            'nama' => "required|unique:prodi",
+            'singkatan' => "required|max:4",
+            'fakultas_id' => "required"
+        ]);
+        // simpan ke tabel fakultas
+        Prodi::create($val);
+        // redirect ke halaman list fakultas
+        return redirect()->route('prodi.index')->with('Success', $val['nama'] . ' berhasil disimpan');
     }
 
     /**

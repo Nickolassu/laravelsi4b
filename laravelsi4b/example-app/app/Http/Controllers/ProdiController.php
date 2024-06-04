@@ -23,7 +23,7 @@ class ProdiController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
         $fakultas = Fakultas::all();
         return view('prodi.create')->with('fakultas',$fakultas);
     }
@@ -36,7 +36,7 @@ class ProdiController extends Controller
         // dd($request);
         // validasi form
         $val = $request->validate([
-            'nama' => "required|unique:prodi",
+            'nama' => "required|unique:prodis",
             'singkatan' => "required|max:4",
             'fakultas_id' => "required"
         ]);

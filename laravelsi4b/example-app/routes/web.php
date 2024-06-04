@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdiController;
 use App\Models\Fakultas;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,4 @@ route:: resource('fakultas', FakultasController::class);
 
 route::resource('prodi', ProdiController::class);
 
-route::resource('mahasiswa', ProdiController::class);
+route::resource('mahasiswa', MahasiswaController::class);

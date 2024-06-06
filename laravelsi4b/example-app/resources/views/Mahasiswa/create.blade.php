@@ -11,7 +11,7 @@
                   <p class="card-description">
                     Formulir tambah mahasiswa
                   </p>
-                  <form method="POST"action="{{route('mahasiswa.store')}}" class="forms-sample">
+                  <form method="POST"action="{{route('mahasiswa.store')}}" class="forms-sample" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                       <label for="npm">NPM</label>
@@ -48,7 +48,7 @@
                       </select>
                      <div class="form-group">
                       <label for="url_foto">Url Foto</label>
-                      <input type="text" class="form-control" name="url_foto" value="{{old('url_foto')}}">
+                      <input type="file" class="form-control" name="url_foto" >
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                     <a href="{{ url('fakultas')}}" class="btn btn-light">Batal</button>

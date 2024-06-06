@@ -41,8 +41,16 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => "required|date",
             'alamat' => "required",
             'prodi_id' => "required",
-            'url_foto'=> "required"
+            'url_foto'=> "required|file|mimes:png,jpg|max:5000"
         ]);
+        // ekstensi file yang diupload
+        $ext=$request->url_foto->getClientOriginalExtension();
+        // rename misal:npm.extensi 2226240001.png
+        $val['url_foto']=$request->npm.".".$ext;
+        // upload ke dalam folder public/foto
+        $request->url_foto->move('foto',$val['url_foto']);
+
+
         // simpan ke tabel fakultas
         Mahasiswa::create($val);
         // redirect ke halaman list fakultas
@@ -78,6 +86,8 @@ class MahasiswaController extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        // dd($mahasiswa);
+        $mahasiswa->delete(); // hapus data mahasiswa
+        return redirect()->route('mahasiswa.index')->with('success','Data berhasil dihapus');
     }
 }

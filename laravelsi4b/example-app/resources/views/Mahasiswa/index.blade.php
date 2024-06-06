@@ -9,7 +9,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Mahasiswa</h4>
                   <p class="card-description">
-                    List data Mahasiswa 
+                    List data Mahasiswa
                   </p>
                   <a href="{{ route('mahasiswa.create')}}" class="btn btn-primary">tambah</a>
                   <div class="table-responsive">
@@ -41,8 +41,10 @@
                               <form action="{{ route('mahasiswa.destroy', $item["id"]) }}" method="post">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-rounded btn-danger show_confirm" data-name="{{ $item["nama"]}}">Hapus</button> 
+                                <button type="submit" class="btn btn-sm btn-rounded btn-danger show_confirm" data-name="{{ $item["nama"]}}">Hapus</button>
                               </form>
+                              <a href="{{ route('mahasiswa.edit', $item["id"])}}"
+                              class="btn btn-sm btn-rounded btn-warning">Ubah</a>
                             </td>
                           </tr>
                         @endforeach
@@ -65,7 +67,7 @@
     </script>
 @endif
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           let form =  $(this).closest("form");
           let name = $(this).data("name");

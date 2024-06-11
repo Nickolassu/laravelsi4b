@@ -120,7 +120,7 @@
                     name: 'Mahasiswa',
                     data: [
                         @foreach($mahasiswaprodi as $item)
-                            {{ $item->jumlah }},
+                            {{$ietm->jumlah}},
                         @endforeach
                     ]
                 }
@@ -129,5 +129,5 @@
  
             </script>
         </div>
-</div>
+    </div>
 @endsection

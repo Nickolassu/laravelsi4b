@@ -12,7 +12,9 @@
                   <p class="card-description">
                     List data Program studi
                   </p>
+                  @can('create',App\Prodi::class)
                   <a href="{{ route('prodi.create')}}" class="btn btn-primary">tambah</a>
+                  @endcan
                   <div class="table-responsive">
                     <table class="table">
                       <thead>

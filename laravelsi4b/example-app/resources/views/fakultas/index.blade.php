@@ -11,7 +11,9 @@
                   <p class="card-description">
                     List data Fakultas
                   </p>
-                  <a href="{{ route('fakultas.create')}}" class="btn btn-primary">tambah</a>
+                  @can('create',App\Fakultas::class)
+                    <a href="{{ route('fakultas.create')}}" class="btn btn-primary">tambah</a>
+                  @endcan
                   <div class="table-responsive">
                     <table class="table">
                       <thead>

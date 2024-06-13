@@ -11,7 +11,9 @@
                   <p class="card-description">
                     List data Mahasiswa
                   </p>
+                  @can('create',App\Mahasiswa::class)
                   <a href="{{ route('mahasiswa.create')}}" class="btn btn-primary">tambah</a>
+                  @endcan
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -38,13 +40,17 @@
                             <td>{{$item["prodi"]["nama"]}}</td>
                             <td>{{$item["url_foto"]}}</td>
                             <td>
-                              <form action="{{ route('mahasiswa.destroy', $item["id"]) }}" method="post">
+                              @can('delete',$item)
+                              <form action="{{ route('mahasiswa.destroy', $item["id"]) }}" method="post" style="display: inline">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-rounded btn-danger show_confirm" data-name="{{ $item["nama"]}}">Hapus</button>
                               </form>
+                              @endcan
+                              @can('update',$item)
                               <a href="{{ route('mahasiswa.edit', $item["id"])}}"
                               class="btn btn-sm btn-rounded btn-warning">Ubah</a>
+                              @endcan
                             </td>
                           </tr>
                         @endforeach

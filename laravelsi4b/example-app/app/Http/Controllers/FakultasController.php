@@ -10,12 +10,11 @@ class FakultasController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $fakultas = Fakultas::all();//select * from fakultas
+    public function index(){
+        $fakultas=Fakultas::all();
         return view('fakultas.index')
-            ->with('fakultas', $fakultas);
-    }
+                ->with('fakultas',$fakultas);
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -30,6 +29,9 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->user()->cannot('create',Fakultas::class)){
+            abort(403);
+        }
         // dd($request);
         // validasi form
         $val = $request->validate([

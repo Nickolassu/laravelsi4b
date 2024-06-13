@@ -33,6 +33,8 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->user()->cannot('create',Prodi::class)){
+            abort(403);
         // dd($request);
         // validasi form
         $val = $request->validate([
@@ -45,7 +47,7 @@ class ProdiController extends Controller
         // redirect ke halaman list fakultas
         return redirect()->route('prodi.index')->with('Success', $val['nama'] . ' berhasil disimpan');
     }
-
+    }
     /**
      * Display the specified resource.
      */
